@@ -50,6 +50,16 @@ namespace Tickets.Formularios
             this.BtnEditar = new System.Windows.Forms.Button();
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnLimpiar = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.CIDUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CUsuarioRolDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaUsuarios)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -69,14 +79,30 @@ namespace Tickets.Formularios
             this.DgvListaUsuarios.AllowUserToAddRows = false;
             this.DgvListaUsuarios.AllowUserToDeleteRows = false;
             this.DgvListaUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvListaUsuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CIDUsuario,
+            this.CCedula,
+            this.CNombre,
+            this.CEmail,
+            this.CUsuarioRolDescripcion});
             this.DgvListaUsuarios.Location = new System.Drawing.Point(12, 51);
+            this.DgvListaUsuarios.MultiSelect = false;
             this.DgvListaUsuarios.Name = "DgvListaUsuarios";
             this.DgvListaUsuarios.ReadOnly = true;
-            this.DgvListaUsuarios.Size = new System.Drawing.Size(812, 238);
+            this.DgvListaUsuarios.RowHeadersVisible = false;
+            this.DgvListaUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DgvListaUsuarios.Size = new System.Drawing.Size(812, 226);
             this.DgvListaUsuarios.TabIndex = 1;
+            this.DgvListaUsuarios.VirtualMode = true;
+            this.DgvListaUsuarios.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaUsuarios_RowEnter);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.CbRol);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
@@ -91,7 +117,7 @@ namespace Tickets.Formularios
             this.groupBox1.Controls.Add(this.TxtNombre);
             this.groupBox1.Controls.Add(this.TxtIDUsuario);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 295);
+            this.groupBox1.Location = new System.Drawing.Point(12, 283);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(812, 168);
             this.groupBox1.TabIndex = 2;
@@ -102,15 +128,16 @@ namespace Tickets.Formularios
             // 
             this.CbRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CbRol.FormattingEnabled = true;
-            this.CbRol.Location = new System.Drawing.Point(536, 131);
+            this.CbRol.Location = new System.Drawing.Point(536, 135);
             this.CbRol.Name = "CbRol";
             this.CbRol.Size = new System.Drawing.Size(264, 21);
             this.CbRol.TabIndex = 13;
+            this.CbRol.SelectionChangeCommitted += new System.EventHandler(this.CbRol_SelectionChangeCommitted);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(506, 138);
+            this.label7.Location = new System.Drawing.Point(485, 138);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(23, 13);
             this.label7.TabIndex = 12;
@@ -119,7 +146,7 @@ namespace Tickets.Formularios
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(465, 95);
+            this.label6.Location = new System.Drawing.Point(444, 99);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(64, 13);
             this.label6.TabIndex = 11;
@@ -131,11 +158,12 @@ namespace Tickets.Formularios
             this.TxtContrasennia.Name = "TxtContrasennia";
             this.TxtContrasennia.Size = new System.Drawing.Size(265, 20);
             this.TxtContrasennia.TabIndex = 10;
+            this.TxtContrasennia.Leave += new System.EventHandler(this.TxtContrasennia_Leave);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(395, 60);
+            this.label5.Location = new System.Drawing.Point(374, 60);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(134, 13);
             this.label5.TabIndex = 9;
@@ -147,6 +175,7 @@ namespace Tickets.Formularios
             this.TxtEmail.Name = "TxtEmail";
             this.TxtEmail.Size = new System.Drawing.Size(265, 20);
             this.TxtEmail.TabIndex = 8;
+            this.TxtEmail.Leave += new System.EventHandler(this.TxtEmail_Leave);
             // 
             // label4
             // 
@@ -163,6 +192,7 @@ namespace Tickets.Formularios
             this.TxtTelefono.Name = "TxtTelefono";
             this.TxtTelefono.Size = new System.Drawing.Size(265, 20);
             this.TxtTelefono.TabIndex = 6;
+            this.TxtTelefono.Leave += new System.EventHandler(this.TxtTelefono_Leave);
             // 
             // label3
             // 
@@ -179,6 +209,7 @@ namespace Tickets.Formularios
             this.TxtCedula.Name = "TxtCedula";
             this.TxtCedula.Size = new System.Drawing.Size(265, 20);
             this.TxtCedula.TabIndex = 4;
+            this.TxtCedula.Leave += new System.EventHandler(this.TxtCedula_Leave);
             // 
             // label2
             // 
@@ -195,6 +226,7 @@ namespace Tickets.Formularios
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.Size = new System.Drawing.Size(265, 20);
             this.TxtNombre.TabIndex = 2;
+            this.TxtNombre.Leave += new System.EventHandler(this.TxtNombre_Leave);
             // 
             // TxtIDUsuario
             // 
@@ -218,18 +250,19 @@ namespace Tickets.Formularios
             this.BtnAgregar.BackColor = System.Drawing.Color.Green;
             this.BtnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAgregar.ForeColor = System.Drawing.Color.White;
-            this.BtnAgregar.Location = new System.Drawing.Point(21, 479);
+            this.BtnAgregar.Location = new System.Drawing.Point(21, 481);
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(113, 29);
             this.BtnAgregar.TabIndex = 3;
             this.BtnAgregar.Text = "AGREGAR";
             this.BtnAgregar.UseVisualStyleBackColor = false;
+            this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
             // BtnEditar
             // 
             this.BtnEditar.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnEditar.Location = new System.Drawing.Point(185, 479);
+            this.BtnEditar.Location = new System.Drawing.Point(202, 479);
             this.BtnEditar.Name = "BtnEditar";
             this.BtnEditar.Size = new System.Drawing.Size(116, 29);
             this.BtnEditar.TabIndex = 4;
@@ -241,7 +274,7 @@ namespace Tickets.Formularios
             this.BtnEliminar.BackColor = System.Drawing.Color.Brown;
             this.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnEliminar.ForeColor = System.Drawing.Color.White;
-            this.BtnEliminar.Location = new System.Drawing.Point(348, 479);
+            this.BtnEliminar.Location = new System.Drawing.Point(363, 479);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.Size = new System.Drawing.Size(130, 29);
             this.BtnEliminar.TabIndex = 5;
@@ -258,6 +291,100 @@ namespace Tickets.Formularios
             this.BtnLimpiar.TabIndex = 6;
             this.BtnLimpiar.Text = "Limpiar";
             this.BtnLimpiar.UseVisualStyleBackColor = false;
+            this.BtnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Red;
+            this.label8.Location = new System.Drawing.Point(73, 60);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(15, 20);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "*";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Red;
+            this.label9.Location = new System.Drawing.Point(73, 99);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(15, 20);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "*";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Red;
+            this.label10.Location = new System.Drawing.Point(514, 57);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(15, 20);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "*";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Red;
+            this.label11.Location = new System.Drawing.Point(514, 94);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(15, 20);
+            this.label11.TabIndex = 17;
+            this.label11.Text = "*";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Red;
+            this.label12.Location = new System.Drawing.Point(514, 135);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(15, 20);
+            this.label12.TabIndex = 18;
+            this.label12.Text = "*";
+            // 
+            // CIDUsuario
+            // 
+            this.CIDUsuario.DataPropertyName = "IDUsuario";
+            this.CIDUsuario.HeaderText = "Código";
+            this.CIDUsuario.Name = "CIDUsuario";
+            this.CIDUsuario.ReadOnly = true;
+            // 
+            // CCedula
+            // 
+            this.CCedula.DataPropertyName = "Cedula";
+            this.CCedula.HeaderText = "Cédula";
+            this.CCedula.Name = "CCedula";
+            this.CCedula.ReadOnly = true;
+            // 
+            // CNombre
+            // 
+            this.CNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CNombre.DataPropertyName = "Nombre";
+            this.CNombre.HeaderText = "Nombre";
+            this.CNombre.Name = "CNombre";
+            this.CNombre.ReadOnly = true;
+            // 
+            // CEmail
+            // 
+            this.CEmail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CEmail.DataPropertyName = "Email";
+            this.CEmail.HeaderText = "Email/Nombre Usuario";
+            this.CEmail.Name = "CEmail";
+            this.CEmail.ReadOnly = true;
+            this.CEmail.Width = 200;
+            // 
+            // CUsuarioRolDescripcion
+            // 
+            this.CUsuarioRolDescripcion.DataPropertyName = "UsuarioRolDescripcion";
+            this.CUsuarioRolDescripcion.HeaderText = "Rol";
+            this.CUsuarioRolDescripcion.Name = "CUsuarioRolDescripcion";
+            this.CUsuarioRolDescripcion.ReadOnly = true;
             // 
             // FrmUsuarioGestion
             // 
@@ -276,6 +403,7 @@ namespace Tickets.Formularios
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestión de Usuarios";
+            this.Load += new System.EventHandler(this.FrmUsuarioGestion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaUsuarios)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -307,5 +435,15 @@ namespace Tickets.Formularios
         private System.Windows.Forms.Button BtnEditar;
         private System.Windows.Forms.Button BtnEliminar;
         private System.Windows.Forms.Button BtnLimpiar;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CIDUsuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CCedula;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CUsuarioRolDescripcion;
     }
 }
