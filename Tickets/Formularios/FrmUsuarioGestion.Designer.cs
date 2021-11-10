@@ -31,7 +31,17 @@ namespace Tickets.Formularios
         {
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.DgvListaUsuarios = new System.Windows.Forms.DataGridView();
+            this.CIDUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CUsuarioRolDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.CbRol = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -50,16 +60,6 @@ namespace Tickets.Formularios
             this.BtnEditar = new System.Windows.Forms.Button();
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnLimpiar = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.CIDUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CUsuarioRolDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaUsuarios)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -96,6 +96,44 @@ namespace Tickets.Formularios
             this.DgvListaUsuarios.VirtualMode = true;
             this.DgvListaUsuarios.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaUsuarios_RowEnter);
             // 
+            // CIDUsuario
+            // 
+            this.CIDUsuario.DataPropertyName = "IDUsuario";
+            this.CIDUsuario.HeaderText = "Código";
+            this.CIDUsuario.Name = "CIDUsuario";
+            this.CIDUsuario.ReadOnly = true;
+            // 
+            // CCedula
+            // 
+            this.CCedula.DataPropertyName = "Cedula";
+            this.CCedula.HeaderText = "Cédula";
+            this.CCedula.Name = "CCedula";
+            this.CCedula.ReadOnly = true;
+            // 
+            // CNombre
+            // 
+            this.CNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CNombre.DataPropertyName = "Nombre";
+            this.CNombre.HeaderText = "Nombre";
+            this.CNombre.Name = "CNombre";
+            this.CNombre.ReadOnly = true;
+            // 
+            // CEmail
+            // 
+            this.CEmail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CEmail.DataPropertyName = "Email";
+            this.CEmail.HeaderText = "Email/Nombre Usuario";
+            this.CEmail.Name = "CEmail";
+            this.CEmail.ReadOnly = true;
+            this.CEmail.Width = 200;
+            // 
+            // CUsuarioRolDescripcion
+            // 
+            this.CUsuarioRolDescripcion.DataPropertyName = "UsuarioRolDescripcion";
+            this.CUsuarioRolDescripcion.HeaderText = "Rol";
+            this.CUsuarioRolDescripcion.Name = "CUsuarioRolDescripcion";
+            this.CUsuarioRolDescripcion.ReadOnly = true;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label12);
@@ -123,6 +161,61 @@ namespace Tickets.Formularios
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalles del Usuario";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Red;
+            this.label12.Location = new System.Drawing.Point(514, 135);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(15, 20);
+            this.label12.TabIndex = 18;
+            this.label12.Text = "*";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Red;
+            this.label11.Location = new System.Drawing.Point(514, 94);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(15, 20);
+            this.label11.TabIndex = 17;
+            this.label11.Text = "*";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Red;
+            this.label10.Location = new System.Drawing.Point(514, 57);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(15, 20);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "*";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Red;
+            this.label9.Location = new System.Drawing.Point(73, 99);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(15, 20);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "*";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Red;
+            this.label8.Location = new System.Drawing.Point(73, 60);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(15, 20);
+            this.label8.TabIndex = 14;
+            this.label8.Text = "*";
             // 
             // CbRol
             // 
@@ -262,19 +355,20 @@ namespace Tickets.Formularios
             // 
             this.BtnEditar.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnEditar.Location = new System.Drawing.Point(202, 479);
+            this.BtnEditar.Location = new System.Drawing.Point(187, 479);
             this.BtnEditar.Name = "BtnEditar";
             this.BtnEditar.Size = new System.Drawing.Size(116, 29);
             this.BtnEditar.TabIndex = 4;
             this.BtnEditar.Text = "EDITAR";
             this.BtnEditar.UseVisualStyleBackColor = false;
+            this.BtnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
             // 
             // BtnEliminar
             // 
             this.BtnEliminar.BackColor = System.Drawing.Color.Brown;
             this.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnEliminar.ForeColor = System.Drawing.Color.White;
-            this.BtnEliminar.Location = new System.Drawing.Point(363, 479);
+            this.BtnEliminar.Location = new System.Drawing.Point(369, 479);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.Size = new System.Drawing.Size(130, 29);
             this.BtnEliminar.TabIndex = 5;
@@ -292,99 +386,6 @@ namespace Tickets.Formularios
             this.BtnLimpiar.Text = "Limpiar";
             this.BtnLimpiar.UseVisualStyleBackColor = false;
             this.BtnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Red;
-            this.label8.Location = new System.Drawing.Point(73, 60);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(15, 20);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "*";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(73, 99);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(15, 20);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "*";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(514, 57);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(15, 20);
-            this.label10.TabIndex = 16;
-            this.label10.Text = "*";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Red;
-            this.label11.Location = new System.Drawing.Point(514, 94);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(15, 20);
-            this.label11.TabIndex = 17;
-            this.label11.Text = "*";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Red;
-            this.label12.Location = new System.Drawing.Point(514, 135);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(15, 20);
-            this.label12.TabIndex = 18;
-            this.label12.Text = "*";
-            // 
-            // CIDUsuario
-            // 
-            this.CIDUsuario.DataPropertyName = "IDUsuario";
-            this.CIDUsuario.HeaderText = "Código";
-            this.CIDUsuario.Name = "CIDUsuario";
-            this.CIDUsuario.ReadOnly = true;
-            // 
-            // CCedula
-            // 
-            this.CCedula.DataPropertyName = "Cedula";
-            this.CCedula.HeaderText = "Cédula";
-            this.CCedula.Name = "CCedula";
-            this.CCedula.ReadOnly = true;
-            // 
-            // CNombre
-            // 
-            this.CNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CNombre.DataPropertyName = "Nombre";
-            this.CNombre.HeaderText = "Nombre";
-            this.CNombre.Name = "CNombre";
-            this.CNombre.ReadOnly = true;
-            // 
-            // CEmail
-            // 
-            this.CEmail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CEmail.DataPropertyName = "Email";
-            this.CEmail.HeaderText = "Email/Nombre Usuario";
-            this.CEmail.Name = "CEmail";
-            this.CEmail.ReadOnly = true;
-            this.CEmail.Width = 200;
-            // 
-            // CUsuarioRolDescripcion
-            // 
-            this.CUsuarioRolDescripcion.DataPropertyName = "UsuarioRolDescripcion";
-            this.CUsuarioRolDescripcion.HeaderText = "Rol";
-            this.CUsuarioRolDescripcion.Name = "CUsuarioRolDescripcion";
-            this.CUsuarioRolDescripcion.ReadOnly = true;
             // 
             // FrmUsuarioGestion
             // 

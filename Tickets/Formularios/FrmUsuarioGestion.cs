@@ -286,5 +286,51 @@ namespace Tickets.Formularios
                 CbRol.SelectedValue = MiUsuarioLocal.MiRol.IDUsuarioRol;
             }
         }
+
+        private void BtnEditar_Click(object sender, EventArgs e)
+        {
+            //según el diagrama de casos de uso expandido, se debe consultar por el 
+            //ID antes de proceder con el proceso de actualización. 
+            //esto debería estar exlpicado en el diagrama de secuencia correspondiente
+
+            if (ValidarDatosRequeridos())
+            {
+                //si se cumplen los datos mínimos se procede 
+
+                //uso un objeto temporal para no tocal el usuario local y poder evaluar
+                //(si tiene datos en los atributos) que el usuario existe aún en BD
+                Logica.Models.Usuario ObjUsuario = MiUsuarioLocal.ConsultarPorID(MiUsuarioLocal.IDUsuario);
+
+                if (ObjUsuario.IDUsuario > 0)
+                {
+                    //si el id (o cualquier atrib obligatorio) tiene datos, se puede 
+                    //asegurar que el usuario aún existe y proceder con el update 
+
+                    if (MiUsuarioLocal.Editar())
+                    {
+                        //se muestra mensaje de éxito y se actualiza la lista 
+
+                        MessageBox.Show("El Usuario se ha actualizado correctamente!", ":)", MessageBoxButtons.OK);
+
+                        LimpiarFormulario();
+
+                        LlenarListaUsuarios();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ha ocurrido un error y no se actualizó el usuario!", ":(", MessageBoxButtons.OK);
+                    
+                    }
+
+                }
+
+
+
+
+            }
+
+
+        }
     }
 }

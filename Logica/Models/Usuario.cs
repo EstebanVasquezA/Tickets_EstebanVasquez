@@ -50,6 +50,23 @@ namespace Logica.Models
         {
             bool R = false;
 
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListadoDeParametros.Add(new SqlParameter("@Cedula", this.Cedula));
+            MiCnn.ListadoDeParametros.Add(new SqlParameter("@Nombre", this.Nombre));
+            MiCnn.ListadoDeParametros.Add(new SqlParameter("@Telefono", this.Telefono));
+            MiCnn.ListadoDeParametros.Add(new SqlParameter("@Email", this.Email));
+            MiCnn.ListadoDeParametros.Add(new SqlParameter("@Contrasennia", this.Contrasennia));
+            MiCnn.ListadoDeParametros.Add(new SqlParameter("@IdRol", this.MiRol.IDUsuarioRol));
+            MiCnn.ListadoDeParametros.Add(new SqlParameter("@ID", this.IDUsuario));
+
+            int retorno = MiCnn.DMLUpdateDeleteInsert("SPUsuarioEditar");
+
+            if (retorno == 1)
+            {
+                R = true;
+            }
+
             return R;
         }
 
