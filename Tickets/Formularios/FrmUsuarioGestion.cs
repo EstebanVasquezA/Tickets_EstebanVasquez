@@ -44,6 +44,8 @@ namespace Tickets.Formularios
 
             //cargar la lista de usuarios
             LlenarListaUsuarios();
+
+            LimpiarFormulario();
         }
 
         private void LlenarListaUsuarios()
@@ -148,6 +150,9 @@ namespace Tickets.Formularios
 
             //al reinstanciar el objeto local se eliminan todos los datos de los atributos
             MiUsuarioLocal = new Logica.Models.Usuario();
+
+            ActivarAgregar();
+
         }
 
         private void BtnAgregar_Click(object sender, EventArgs e)
@@ -170,24 +175,33 @@ namespace Tickets.Formularios
 			    {
                     //si no existe la cedula y si no existe el email tengo permiso para continuar con agregar
 
-                    //1.6
-                    if (MiUsuarioLocal.Agregar())
+                    string Mensaje = string.Format("¿Desea Continuar y Agregar al Usuario {0}?", MiUsuarioLocal.Nombre);
+
+                    DialogResult Continuar = MessageBox.Show(Mensaje, "???", MessageBoxButtons.YesNo);
+
+                    //si el id (o cualquier atrib obligatorio) tiene datos, se puede 
+                    //asegurar que el usuario aún existe y proceder con el update 
+
+                    if (Continuar == DialogResult.Yes)
                     {
-                        MessageBox.Show("Usuario Agregado Correctamente", ":)", MessageBoxButtons.OK);
+                        //1.6
+                        if (MiUsuarioLocal.Agregar())
+                        {
+                            MessageBox.Show("Usuario Agregado Correctamente", ":)", MessageBoxButtons.OK);
 
-                        LimpiarFormulario();
+                            LimpiarFormulario();
 
-                        LlenarListaUsuarios();
-
+                            LlenarListaUsuarios();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ha ocurrido un error y no se ha guardado el usuario", ":(", MessageBoxButtons.OK);
+                        }
                     }
-                    else
-                    {
-                        MessageBox.Show("Ha ocurrido un error y no se ha guardado el usuario", ":(", MessageBoxButtons.OK);
-                    }
-
 			    }
 			}
         }
+
         private void TxtNombre_Leave(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(TxtNombre.Text.Trim()))
@@ -228,7 +242,16 @@ namespace Tickets.Formularios
         {
             if (!string.IsNullOrEmpty(TxtEmail.Text.Trim()))
             {
-                MiUsuarioLocal.Email = TxtEmail.Text.Trim();
+                if (Commons.ObjetosGlobales.ValidarEmail(TxtEmail.Text.Trim()))
+                {
+                    MiUsuarioLocal.Email = TxtEmail.Text.Trim();
+                }
+                else
+                {
+                    MessageBox.Show("El formato del correo no es correcto!!", "Error de validación", MessageBoxButtons.OK);
+                    TxtEmail.Focus();
+                    TxtEmail.SelectAll();
+                }
             }
             else
             {
@@ -264,8 +287,85 @@ namespace Tickets.Formularios
         {
             LimpiarFormulario();
         }
+               
 
-        private void DgvListaUsuarios_RowEnter(object sender, DataGridViewCellEventArgs e)
+        private void BtnEditar_Click(object sender, EventArgs e)
+        {
+            //según el diagrama de casos de uso expandido, se debe consultar por el 
+            //ID antes de proceder con el proceso de actualización. 
+            //esto debería estar exlpicado en el diagrama de secuencia correspondiente
+
+            if (ValidarDatosRequeridos())
+            {
+                //si se cumplen los datos mínimos se procede 
+
+                //uso un objeto temporal para no tocal el usuario local y poder evaluar
+                //(si tiene datos en los atributos) que el usuario existe aún en BD
+                Logica.Models.Usuario ObjUsuario = MiUsuarioLocal.ConsultarPorID(MiUsuarioLocal.IDUsuario);
+
+                if (ObjUsuario.IDUsuario > 0)
+                {
+                    string Mensaje = string.Format("¿Desea Continuar con la Modificación del Usuario {0}?", MiUsuarioLocal.Nombre);
+
+                    DialogResult Continuar = MessageBox.Show(Mensaje, "???", MessageBoxButtons.YesNo);
+
+                    //si el id (o cualquier atrib obligatorio) tiene datos, se puede 
+                    //asegurar que el usuario aún existe y proceder con el update 
+
+                    if (Continuar == DialogResult.Yes)
+                    {
+                        if (MiUsuarioLocal.Editar())
+                        {
+                            //se muestra mensaje de éxito y se actualiza la lista 
+
+                            MessageBox.Show("El Usuario se ha actualizado correctamente!", ":)", MessageBoxButtons.OK);
+
+                            LimpiarFormulario();
+
+                            LlenarListaUsuarios();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ha ocurrido un error y no se actualizó el usuario!", ":(", MessageBoxButtons.OK);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void BtnEliminar_Click(object sender, EventArgs e)
+        {      
+            Logica.Models.Usuario ObjUsuarioTemporal = MiUsuarioLocal.ConsultarPorID(MiUsuarioLocal.IDUsuario);
+
+            if (ObjUsuarioTemporal.IDUsuario > 0)
+            {
+                string Mensaje = string.Format("¿Desea Continuar con la Desactivación del Usuario {0}?", MiUsuarioLocal.Nombre);
+
+                DialogResult Continuar = MessageBox.Show(Mensaje, "???", MessageBoxButtons.YesNo);
+
+                //si el id (o cualquier atrib obligatorio) tiene datos, se puede 
+                //asegurar que el usuario aún existe y proceder con el update 
+
+                if (Continuar == DialogResult.Yes)
+                {
+                    if (MiUsuarioLocal.Eliminar())
+                    {
+                        //se muestra mensaje de éxito y se actualiza la lista 
+                        MessageBox.Show("El Usuario se ha Desactivado correctamente!", ":)", MessageBoxButtons.OK);
+
+                        LimpiarFormulario();
+
+                        LlenarListaUsuarios();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ha ocurrido un error y no se desactivó el usuario!", ":(", MessageBoxButtons.OK);
+                    }
+                }                             
+            }
+        }
+
+        private void DgvListaUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (DgvListaUsuarios.SelectedRows.Count == 1)
             {
@@ -284,53 +384,39 @@ namespace Tickets.Formularios
                 TxtEmail.Text = MiUsuarioLocal.Email;
                 //TxtContrasennia.Text = MiUsuarioLocal.Contrasennia;
                 CbRol.SelectedValue = MiUsuarioLocal.MiRol.IDUsuarioRol;
+
+                ActivarEditaryEliminar();
             }
         }
 
-        private void BtnEditar_Click(object sender, EventArgs e)
+        private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //según el diagrama de casos de uso expandido, se debe consultar por el 
-            //ID antes de proceder con el proceso de actualización. 
-            //esto debería estar exlpicado en el diagrama de secuencia correspondiente
-
-            if (ValidarDatosRequeridos())
-            {
-                //si se cumplen los datos mínimos se procede 
-
-                //uso un objeto temporal para no tocal el usuario local y poder evaluar
-                //(si tiene datos en los atributos) que el usuario existe aún en BD
-                Logica.Models.Usuario ObjUsuario = MiUsuarioLocal.ConsultarPorID(MiUsuarioLocal.IDUsuario);
-
-                if (ObjUsuario.IDUsuario > 0)
-                {
-                    //si el id (o cualquier atrib obligatorio) tiene datos, se puede 
-                    //asegurar que el usuario aún existe y proceder con el update 
-
-                    if (MiUsuarioLocal.Editar())
-                    {
-                        //se muestra mensaje de éxito y se actualiza la lista 
-
-                        MessageBox.Show("El Usuario se ha actualizado correctamente!", ":)", MessageBoxButtons.OK);
-
-                        LimpiarFormulario();
-
-                        LlenarListaUsuarios();
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ha ocurrido un error y no se actualizó el usuario!", ":(", MessageBoxButtons.OK);
-                    
-                    }
-
-                }
-
-
-
-
-            }
-
-
+           e.Handled = Commons.ObjetosGlobales.CaracteresTexto(e, true);
         }
+
+        private void TxtCedula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+           e.Handled = Commons.ObjetosGlobales.CaracteresNumeros(e);
+        }
+
+        private void TxtEmail_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Commons.ObjetosGlobales.CaracteresTexto(e, false, true);
+        }
+
+        private void ActivarAgregar()
+        {
+            BtnAgregar.Enabled = true;
+            BtnEditar.Enabled = false;
+            BtnEliminar.Enabled = false;
+        }
+
+        private void ActivarEditaryEliminar()
+        {
+            BtnAgregar.Enabled = false;
+            BtnEditar.Enabled = true;
+            BtnEliminar.Enabled = true;
+        }
+
     }
 }

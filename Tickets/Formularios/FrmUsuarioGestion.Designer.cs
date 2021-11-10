@@ -85,7 +85,7 @@ namespace Tickets.Formularios
             this.CNombre,
             this.CEmail,
             this.CUsuarioRolDescripcion});
-            this.DgvListaUsuarios.Location = new System.Drawing.Point(12, 51);
+            this.DgvListaUsuarios.Location = new System.Drawing.Point(10, 51);
             this.DgvListaUsuarios.MultiSelect = false;
             this.DgvListaUsuarios.Name = "DgvListaUsuarios";
             this.DgvListaUsuarios.ReadOnly = true;
@@ -94,7 +94,7 @@ namespace Tickets.Formularios
             this.DgvListaUsuarios.Size = new System.Drawing.Size(812, 226);
             this.DgvListaUsuarios.TabIndex = 1;
             this.DgvListaUsuarios.VirtualMode = true;
-            this.DgvListaUsuarios.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaUsuarios_RowEnter);
+            this.DgvListaUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaUsuarios_CellClick);
             // 
             // CIDUsuario
             // 
@@ -239,7 +239,7 @@ namespace Tickets.Formularios
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(444, 99);
+            this.label6.Location = new System.Drawing.Point(444, 94);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(64, 13);
             this.label6.TabIndex = 11;
@@ -268,6 +268,7 @@ namespace Tickets.Formularios
             this.TxtEmail.Name = "TxtEmail";
             this.TxtEmail.Size = new System.Drawing.Size(265, 20);
             this.TxtEmail.TabIndex = 8;
+            this.TxtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtEmail_KeyPress);
             this.TxtEmail.Leave += new System.EventHandler(this.TxtEmail_Leave);
             // 
             // label4
@@ -302,6 +303,7 @@ namespace Tickets.Formularios
             this.TxtCedula.Name = "TxtCedula";
             this.TxtCedula.Size = new System.Drawing.Size(265, 20);
             this.TxtCedula.TabIndex = 4;
+            this.TxtCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCedula_KeyPress);
             this.TxtCedula.Leave += new System.EventHandler(this.TxtCedula_Leave);
             // 
             // label2
@@ -319,6 +321,7 @@ namespace Tickets.Formularios
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.Size = new System.Drawing.Size(265, 20);
             this.TxtNombre.TabIndex = 2;
+            this.TxtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNombre_KeyPress);
             this.TxtNombre.Leave += new System.EventHandler(this.TxtNombre_Leave);
             // 
             // TxtIDUsuario
@@ -343,7 +346,7 @@ namespace Tickets.Formularios
             this.BtnAgregar.BackColor = System.Drawing.Color.Green;
             this.BtnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAgregar.ForeColor = System.Drawing.Color.White;
-            this.BtnAgregar.Location = new System.Drawing.Point(21, 481);
+            this.BtnAgregar.Location = new System.Drawing.Point(21, 479);
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(113, 29);
             this.BtnAgregar.TabIndex = 3;
@@ -355,7 +358,7 @@ namespace Tickets.Formularios
             // 
             this.BtnEditar.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnEditar.Location = new System.Drawing.Point(187, 479);
+            this.BtnEditar.Location = new System.Drawing.Point(217, 479);
             this.BtnEditar.Name = "BtnEditar";
             this.BtnEditar.Size = new System.Drawing.Size(116, 29);
             this.BtnEditar.TabIndex = 4;
@@ -368,12 +371,13 @@ namespace Tickets.Formularios
             this.BtnEliminar.BackColor = System.Drawing.Color.Brown;
             this.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnEliminar.ForeColor = System.Drawing.Color.White;
-            this.BtnEliminar.Location = new System.Drawing.Point(369, 479);
+            this.BtnEliminar.Location = new System.Drawing.Point(423, 479);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.Size = new System.Drawing.Size(130, 29);
             this.BtnEliminar.TabIndex = 5;
             this.BtnEliminar.Text = "ELIMINAR";
             this.BtnEliminar.UseVisualStyleBackColor = false;
+            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
             // 
             // BtnLimpiar
             // 
