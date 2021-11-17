@@ -20,6 +20,8 @@ namespace Tickets.Formularios
         private void FrmMain_Load(object sender, EventArgs e)
         {
             TmrHora.Enabled = true;
+
+            LblUsuarioLogueado.Text = Commons.ObjetosGlobales.MiUsuarioDeSistema.Email;
         }
 
         private void TmrHora_Tick(object sender, EventArgs e)

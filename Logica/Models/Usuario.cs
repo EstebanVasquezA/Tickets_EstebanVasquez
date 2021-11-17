@@ -245,5 +245,34 @@ namespace Logica.Models
             return R;
         }
 
+        public Usuario ValidarIngreso(string user, string password)
+        {
+            Usuario R = new Usuario();
+
+            Conexion MiCnn = new Conexion();
+            Crypto MiEncriptador = new Crypto();
+
+            string PassEncriptado = MiEncriptador.EncriptarEnUnSentido(password);
+
+            MiCnn.ListadoDeParametros.Add(new SqlParameter("@user", user));
+            MiCnn.ListadoDeParametros.Add(new SqlParameter("@pass", PassEncriptado));
+
+            DataTable DatosUsuario = MiCnn.DMLSelect("SPUsuarioValidarIngreso");
+
+            if (DatosUsuario != null && DatosUsuario.Rows.Count == 1)
+            {
+                DataRow Fila = DatosUsuario.Rows[0];
+
+                R.IDUsuario = Convert.ToInt32(Fila["ID"]);
+                R.Nombre = Convert.ToString(Fila["Nombre"]);
+                R.Cedula = Convert.ToString(Fila["Cedula"]);
+                R.Telefono = Convert.ToString(Fila["Telefono"]);
+                R.Email = Convert.ToString(Fila["Email"]);
+                R.Contrasennia = string.Empty;
+                R.MiRol.IDUsuarioRol = Convert.ToInt32(Fila["IDUsuarioRol"]);
+            }
+            
+            return R;
+        }
     }
 }

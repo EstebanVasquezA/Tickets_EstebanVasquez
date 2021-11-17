@@ -93,7 +93,7 @@ namespace Tickets.Formularios
             this.DgvListaUsuarios.ReadOnly = true;
             this.DgvListaUsuarios.RowHeadersVisible = false;
             this.DgvListaUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvListaUsuarios.Size = new System.Drawing.Size(812, 226);
+            this.DgvListaUsuarios.Size = new System.Drawing.Size(814, 226);
             this.DgvListaUsuarios.TabIndex = 1;
             this.DgvListaUsuarios.VirtualMode = true;
             this.DgvListaUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvListaUsuarios_CellClick);
