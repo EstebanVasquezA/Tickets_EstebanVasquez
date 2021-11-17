@@ -38,7 +38,7 @@ namespace Tickets.Formularios
             this.CUsuarioRolDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.LblPassRequerido = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -60,6 +60,7 @@ namespace Tickets.Formularios
             this.BtnEditar = new System.Windows.Forms.Button();
             this.BtnEliminar = new System.Windows.Forms.Button();
             this.BtnLimpiar = new System.Windows.Forms.Button();
+            this.CboxVerActivos = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.DgvListaUsuarios)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -67,12 +68,13 @@ namespace Tickets.Formularios
             // TxtBuscar
             // 
             this.TxtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtBuscar.Location = new System.Drawing.Point(264, 12);
+            this.TxtBuscar.Location = new System.Drawing.Point(243, 12);
             this.TxtBuscar.Name = "TxtBuscar";
-            this.TxtBuscar.Size = new System.Drawing.Size(289, 24);
+            this.TxtBuscar.Size = new System.Drawing.Size(326, 24);
             this.TxtBuscar.TabIndex = 0;
             this.TxtBuscar.Text = "Buscar...";
             this.TxtBuscar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtBuscar.TextChanged += new System.EventHandler(this.TxtBuscar_TextChanged);
             // 
             // DgvListaUsuarios
             // 
@@ -137,7 +139,7 @@ namespace Tickets.Formularios
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.LblPassRequerido);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label8);
@@ -173,16 +175,16 @@ namespace Tickets.Formularios
             this.label12.TabIndex = 18;
             this.label12.Text = "*";
             // 
-            // label11
+            // LblPassRequerido
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Red;
-            this.label11.Location = new System.Drawing.Point(514, 94);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(15, 20);
-            this.label11.TabIndex = 17;
-            this.label11.Text = "*";
+            this.LblPassRequerido.AutoSize = true;
+            this.LblPassRequerido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPassRequerido.ForeColor = System.Drawing.Color.Red;
+            this.LblPassRequerido.Location = new System.Drawing.Point(514, 94);
+            this.LblPassRequerido.Name = "LblPassRequerido";
+            this.LblPassRequerido.Size = new System.Drawing.Size(15, 20);
+            this.LblPassRequerido.TabIndex = 17;
+            this.LblPassRequerido.Text = "*";
             // 
             // label10
             // 
@@ -329,7 +331,7 @@ namespace Tickets.Formularios
             this.TxtIDUsuario.Location = new System.Drawing.Point(94, 24);
             this.TxtIDUsuario.Name = "TxtIDUsuario";
             this.TxtIDUsuario.ReadOnly = true;
-            this.TxtIDUsuario.Size = new System.Drawing.Size(100, 20);
+            this.TxtIDUsuario.Size = new System.Drawing.Size(146, 20);
             this.TxtIDUsuario.TabIndex = 1;
             // 
             // label1
@@ -346,9 +348,9 @@ namespace Tickets.Formularios
             this.BtnAgregar.BackColor = System.Drawing.Color.Green;
             this.BtnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAgregar.ForeColor = System.Drawing.Color.White;
-            this.BtnAgregar.Location = new System.Drawing.Point(21, 479);
+            this.BtnAgregar.Location = new System.Drawing.Point(21, 469);
             this.BtnAgregar.Name = "BtnAgregar";
-            this.BtnAgregar.Size = new System.Drawing.Size(113, 29);
+            this.BtnAgregar.Size = new System.Drawing.Size(130, 29);
             this.BtnAgregar.TabIndex = 3;
             this.BtnAgregar.Text = "AGREGAR";
             this.BtnAgregar.UseVisualStyleBackColor = false;
@@ -358,7 +360,7 @@ namespace Tickets.Formularios
             // 
             this.BtnEditar.BackColor = System.Drawing.Color.DarkGoldenrod;
             this.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnEditar.Location = new System.Drawing.Point(217, 479);
+            this.BtnEditar.Location = new System.Drawing.Point(225, 469);
             this.BtnEditar.Name = "BtnEditar";
             this.BtnEditar.Size = new System.Drawing.Size(116, 29);
             this.BtnEditar.TabIndex = 4;
@@ -371,7 +373,7 @@ namespace Tickets.Formularios
             this.BtnEliminar.BackColor = System.Drawing.Color.Brown;
             this.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnEliminar.ForeColor = System.Drawing.Color.White;
-            this.BtnEliminar.Location = new System.Drawing.Point(423, 479);
+            this.BtnEliminar.Location = new System.Drawing.Point(411, 469);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.Size = new System.Drawing.Size(130, 29);
             this.BtnEliminar.TabIndex = 5;
@@ -383,7 +385,7 @@ namespace Tickets.Formularios
             // 
             this.BtnLimpiar.BackColor = System.Drawing.Color.CornflowerBlue;
             this.BtnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnLimpiar.Location = new System.Drawing.Point(693, 479);
+            this.BtnLimpiar.Location = new System.Drawing.Point(693, 469);
             this.BtnLimpiar.Name = "BtnLimpiar";
             this.BtnLimpiar.Size = new System.Drawing.Size(119, 29);
             this.BtnLimpiar.TabIndex = 6;
@@ -391,11 +393,25 @@ namespace Tickets.Formularios
             this.BtnLimpiar.UseVisualStyleBackColor = false;
             this.BtnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
             // 
+            // CboxVerActivos
+            // 
+            this.CboxVerActivos.AutoSize = true;
+            this.CboxVerActivos.Checked = true;
+            this.CboxVerActivos.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.CboxVerActivos.Location = new System.Drawing.Point(698, 18);
+            this.CboxVerActivos.Name = "CboxVerActivos";
+            this.CboxVerActivos.Size = new System.Drawing.Size(124, 17);
+            this.CboxVerActivos.TabIndex = 7;
+            this.CboxVerActivos.Text = "Ver Usuarios Activos";
+            this.CboxVerActivos.UseVisualStyleBackColor = true;
+            this.CboxVerActivos.Click += new System.EventHandler(this.CboxVerActivos_Click);
+            // 
             // FrmUsuarioGestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(836, 522);
+            this.ClientSize = new System.Drawing.Size(836, 519);
+            this.Controls.Add(this.CboxVerActivos);
             this.Controls.Add(this.BtnLimpiar);
             this.Controls.Add(this.BtnEliminar);
             this.Controls.Add(this.BtnEditar);
@@ -441,7 +457,7 @@ namespace Tickets.Formularios
         private System.Windows.Forms.Button BtnEliminar;
         private System.Windows.Forms.Button BtnLimpiar;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label LblPassRequerido;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
@@ -450,5 +466,6 @@ namespace Tickets.Formularios
         private System.Windows.Forms.DataGridViewTextBoxColumn CNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn CEmail;
         private System.Windows.Forms.DataGridViewTextBoxColumn CUsuarioRolDescripcion;
+        private System.Windows.Forms.CheckBox CboxVerActivos;
     }
 }
