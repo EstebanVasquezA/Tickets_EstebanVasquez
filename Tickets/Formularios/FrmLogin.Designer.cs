@@ -124,6 +124,7 @@ namespace Tickets.Formularios
             this.LblRecuperarContrasennia.TabIndex = 6;
             this.LblRecuperarContrasennia.TabStop = true;
             this.LblRecuperarContrasennia.Text = "Recuperar Contraseña...";
+            this.LblRecuperarContrasennia.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LblRecuperarContrasennia_LinkClicked);
             // 
             // pictureBox1
             // 

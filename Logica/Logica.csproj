@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Crypto.cs" />
+    <Compile Include="Email.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\ClienteCategoria.cs" />
     <Compile Include="Models\Conexion.cs" />

@@ -74,17 +74,10 @@ namespace Tickets.Formularios
         
         }
 
-
-
         private void BtnIngresar_Click(object sender, EventArgs e)
         {
-           
-
             if (ValidarDatos())
-            {
-                //TODO: hay que validar que el usuario y la contraseña sean 
-                //correctos antes de mostrar el Frm Principal 
-
+            {               
                 Logica.Models.Usuario MiUsuarioValidado = new Logica.Models.Usuario();
 
                 MiUsuarioValidado = MiUsuarioValidado.ValidarIngreso(TxtEmail.Text.Trim(), TxtPassword.Text.Trim());
@@ -124,6 +117,14 @@ namespace Tickets.Formularios
             {
                 BtnIngresoDirecto.Visible = true;
             }
+        }
+
+        private void LblRecuperarContrasennia_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Commons.ObjetosGlobales.FormularioRecuperacionContrasennia.TxtUsuario.Text = this.TxtEmail.Text.Trim();
+
+            Commons.ObjetosGlobales.FormularioRecuperacionContrasennia.Show();
+
         }
     }
 }

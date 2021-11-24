@@ -146,5 +146,7 @@ namespace Tickets.Commons
         //se definen los objetos (basados en clases) que deben ser accesibles desde cualquier lugar de la app
         public static Logica.Models.Usuario MiUsuarioDeSistema = new Logica.Models.Usuario();
 
+        public static Formularios.FrmUsuarioRecuperarContrasennia FormularioRecuperacionContrasennia = new Formularios.FrmUsuarioRecuperarContrasennia();
+
     }
 }

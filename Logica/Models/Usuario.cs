@@ -231,16 +231,63 @@ namespace Logica.Models
             return R;
         }
 
-        public bool EnviarCodigoRecuperacion()
+        public bool EnviarCodigoRecuperacion(string CodigoVerif)
         {
             bool R = false;
+
+            try
+            {
+
+                Conexion MyCnn = new Conexion();
+
+                MyCnn.ListadoDeParametros.Add(new SqlParameter("@Email", this.Email));
+                MyCnn.ListadoDeParametros.Add(new SqlParameter("@CodigoVerif", CodigoVerif));
+
+                int Resultado = MyCnn.DMLUpdateDeleteInsert("SPUsuarioGuardarCodigoVerificacion");
+
+                if (Resultado > 0)
+                {
+                    R = true;
+                }
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
 
             return R;
         }
 
-        public bool CambiarPassword(int iD, string nuevaContrasennia)
+        public bool CambiarPassword()
         {
             bool R = false;
+
+            try
+            {
+                Conexion MyCnn = new Conexion();
+
+                MyCnn.ListadoDeParametros.Add(new SqlParameter("@Email", this.Email));
+
+                Crypto MiEncriptador = new Crypto();
+
+                string ContrasenniaEncriptada = MiEncriptador.EncriptarEnUnSentido(this.Contrasennia);
+
+                MyCnn.ListadoDeParametros.Add(new SqlParameter("@Contrasennia", ContrasenniaEncriptada));
+
+                int Resultado = MyCnn.DMLUpdateDeleteInsert("SPUsuarioActualizarContrasennia");
+
+                if (Resultado > 0)
+                {
+                    R = true;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
 
             return R;
         }
@@ -274,5 +321,32 @@ namespace Logica.Models
             
             return R;
         }
+
+        public bool ComprobarCodigoRecuperacion()
+        {
+            bool R = false;
+
+            try
+            {
+                Conexion MyCnn = new Conexion();
+
+                MyCnn.ListadoDeParametros.Add(new SqlParameter("@Email", this.Email));
+                MyCnn.ListadoDeParametros.Add(new SqlParameter("@CodigoVerif", this.CodigoRecuperacion));
+
+                DataTable Resultado = MyCnn.DMLSelect("SPUsuarioComprobarCodigoVerificacion");
+
+                if (Resultado != null && Resultado.Rows.Count > 0)
+                {
+                    R = true;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return R;
+        }
+
     }
 }

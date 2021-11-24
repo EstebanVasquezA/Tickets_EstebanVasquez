@@ -80,11 +80,23 @@
     <Compile Include="Formularios\FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\FrmTicketCrear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmTicketCrear.Designer.cs">
+      <DependentUpon>FrmTicketCrear.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\FrmUsuarioGestion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\FrmUsuarioGestion.Designer.cs">
       <DependentUpon>FrmUsuarioGestion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmUsuarioRecuperarContrasennia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmUsuarioRecuperarContrasennia.Designer.cs">
+      <DependentUpon>FrmUsuarioRecuperarContrasennia.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -97,8 +109,14 @@
     <EmbeddedResource Include="Formularios\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmTicketCrear.resx">
+      <DependentUpon>FrmTicketCrear.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmUsuarioGestion.resx">
       <DependentUpon>FrmUsuarioGestion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmUsuarioRecuperarContrasennia.resx">
+      <DependentUpon>FrmUsuarioRecuperarContrasennia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
