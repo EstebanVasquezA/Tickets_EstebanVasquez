@@ -135,16 +135,18 @@ namespace Tickets.Formularios
             this.creaciónDeTicketToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.creaciónDeTicketToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.creaciónDeTicketToolStripMenuItem.Name = "creaciónDeTicketToolStripMenuItem";
-            this.creaciónDeTicketToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.creaciónDeTicketToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.creaciónDeTicketToolStripMenuItem.Text = "Creación de Ticket";
+            this.creaciónDeTicketToolStripMenuItem.Click += new System.EventHandler(this.creaciónDeTicketToolStripMenuItem_Click);
             // 
             // soluciónDeTicketToolStripMenuItem
             // 
             this.soluciónDeTicketToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.soluciónDeTicketToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.soluciónDeTicketToolStripMenuItem.Name = "soluciónDeTicketToolStripMenuItem";
-            this.soluciónDeTicketToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.soluciónDeTicketToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.soluciónDeTicketToolStripMenuItem.Text = "Solución de Ticket";
+            this.soluciónDeTicketToolStripMenuItem.Click += new System.EventHandler(this.soluciónDeTicketToolStripMenuItem_Click);
             // 
             // rEPORTESToolStripMenuItem
             // 

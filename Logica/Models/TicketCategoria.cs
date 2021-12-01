@@ -20,7 +20,9 @@ namespace Logica.Models
         {
             DataTable R = new DataTable();
 
-            //TODO:
+            Conexion MiCnn = new Conexion();
+
+            R = MiCnn.DMLSelect("SPTicketCategoriaListar");          
 
             return R;
         }

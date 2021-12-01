@@ -148,5 +148,8 @@ namespace Tickets.Commons
 
         public static Formularios.FrmUsuarioRecuperarContrasennia FormularioRecuperacionContrasennia = new Formularios.FrmUsuarioRecuperarContrasennia();
 
+        public static Formularios.FrmTicketCrear FormCrearTicket = new Formularios.FrmTicketCrear();
+
+        public static Formularios.FrmAtencionDeTickets FormAtencion = new Formularios.FrmAtencionDeTickets();
     }
 }

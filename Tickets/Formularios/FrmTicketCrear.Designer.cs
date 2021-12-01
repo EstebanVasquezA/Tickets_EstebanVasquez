@@ -34,7 +34,6 @@ namespace Tickets.Formularios
             this.label2 = new System.Windows.Forms.Label();
             this.CboxCategoria = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.DtpFecha = new System.Windows.Forms.DateTimePicker();
             this.TxtTitulo = new System.Windows.Forms.TextBox();
             this.TxtDescripcion = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -45,21 +44,23 @@ namespace Tickets.Formularios
             // 
             // TxtIDUsuario
             // 
+            this.TxtIDUsuario.BackColor = System.Drawing.Color.Moccasin;
             this.TxtIDUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtIDUsuario.Location = new System.Drawing.Point(86, 20);
             this.TxtIDUsuario.Name = "TxtIDUsuario";
-            this.TxtIDUsuario.Size = new System.Drawing.Size(100, 22);
+            this.TxtIDUsuario.Size = new System.Drawing.Size(92, 22);
             this.TxtIDUsuario.TabIndex = 0;
+            this.TxtIDUsuario.DoubleClick += new System.EventHandler(this.TxtIDUsuario_DoubleClick);
             // 
             // LblClienteNombre
             // 
             this.LblClienteNombre.AutoSize = true;
             this.LblClienteNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblClienteNombre.Location = new System.Drawing.Point(192, 23);
+            this.LblClienteNombre.Location = new System.Drawing.Point(184, 23);
             this.LblClienteNombre.Name = "LblClienteNombre";
-            this.LblClienteNombre.Size = new System.Drawing.Size(51, 16);
+            this.LblClienteNombre.Size = new System.Drawing.Size(56, 16);
             this.LblClienteNombre.TabIndex = 1;
-            this.LblClienteNombre.Text = "label1";
+            this.LblClienteNombre.Text = "Cliente";
             // 
             // label2
             // 
@@ -85,18 +86,11 @@ namespace Tickets.Formularios
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 63);
+            this.label3.Location = new System.Drawing.Point(13, 66);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 16);
             this.label3.TabIndex = 4;
             this.label3.Text = "Categoría";
-            // 
-            // DtpFecha
-            // 
-            this.DtpFecha.Location = new System.Drawing.Point(534, 19);
-            this.DtpFecha.Name = "DtpFecha";
-            this.DtpFecha.Size = new System.Drawing.Size(252, 20);
-            this.DtpFecha.TabIndex = 5;
             // 
             // TxtTitulo
             // 
@@ -142,12 +136,13 @@ namespace Tickets.Formularios
             this.BtnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnAceptar.ForeColor = System.Drawing.Color.White;
-            this.BtnAceptar.Location = new System.Drawing.Point(101, 343);
+            this.BtnAceptar.Location = new System.Drawing.Point(115, 343);
             this.BtnAceptar.Name = "BtnAceptar";
             this.BtnAceptar.Size = new System.Drawing.Size(161, 47);
             this.BtnAceptar.TabIndex = 10;
             this.BtnAceptar.Text = "Aceptar";
             this.BtnAceptar.UseVisualStyleBackColor = false;
+            this.BtnAceptar.Click += new System.EventHandler(this.BtnAceptar_Click);
             // 
             // BtnCancelar
             // 
@@ -174,7 +169,6 @@ namespace Tickets.Formularios
             this.Controls.Add(this.label4);
             this.Controls.Add(this.TxtDescripcion);
             this.Controls.Add(this.TxtTitulo);
-            this.Controls.Add(this.DtpFecha);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.CboxCategoria);
             this.Controls.Add(this.label2);
@@ -185,6 +179,7 @@ namespace Tickets.Formularios
             this.Name = "FrmTicketCrear";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Crear Ticket";
+            this.Load += new System.EventHandler(this.FrmTicketCrear_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,7 +192,6 @@ namespace Tickets.Formularios
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox CboxCategoria;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker DtpFecha;
         private System.Windows.Forms.TextBox TxtTitulo;
         private System.Windows.Forms.TextBox TxtDescripcion;
         private System.Windows.Forms.Label label4;

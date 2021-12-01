@@ -46,5 +46,18 @@ namespace Tickets.Formularios
             Commons.ObjetosGlobales.FormularioGestionDeUsuarios.Show();
 
         }
+
+        private void creaciónDeTicketToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Commons.ObjetosGlobales.FormCrearTicket = new FrmTicketCrear();
+            Commons.ObjetosGlobales.FormCrearTicket.Show();
+        }
+
+        private void soluciónDeTicketToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Commons.ObjetosGlobales.FormAtencion = new FrmAtencionDeTickets();
+            Commons.ObjetosGlobales.FormAtencion.Show();
+        }
+
     }
 }

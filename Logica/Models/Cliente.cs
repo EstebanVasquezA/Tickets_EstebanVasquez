@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace Logica.Models
 {
@@ -70,9 +71,15 @@ namespace Logica.Models
             return R;
         }
 
-        public DataTable ListarActivos()
+        public DataTable ListarActivos(string filtro = "")
         {
             DataTable R = new DataTable();
+
+            Conexion MiCnn = new Conexion();
+
+            MiCnn.ListadoDeParametros.Add(new SqlParameter("@filtro", filtro));
+
+            R = MiCnn.DMLSelect("SPClienteBuscar");
 
             return R;            
         }
