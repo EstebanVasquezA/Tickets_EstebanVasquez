@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -90,16 +91,29 @@ namespace Tickets.Formularios
                 {
                     MessageBox.Show("Ticket Agregado Correctamente", ":)", MessageBoxButtons.OK);
 
+                    try
+                    {
+                        ReportDocument MiReporte = new ReportDocument();
+
+                        MiReporte = new Reports.RptTicket();
+
+                        MiReporte = MiTicket.Imprimir(MiReporte);
+
+                        FrmVisulizarReportes MiVisualizador = new FrmVisulizarReportes();
+
+                        MiVisualizador.CrvVisualizador.ReportSource = MiReporte;
+
+                        MiVisualizador.Show();
+
+                        MiVisualizador.CrvVisualizador.Zoom(1);
+                    }
+                    catch (Exception)
+                    {
+                        throw;
+                    }
                     LimpiarForm();
-
-                    //TODO Implementar un reporte de crystal para poderlo imprimir y que quede 
-                    //como atestado de creación del ticket 
                 }
-                
-
-
             }
-
         }
 
         private bool Validar()
