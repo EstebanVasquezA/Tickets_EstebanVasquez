@@ -79,8 +79,6 @@ namespace Tickets.Formularios
         {
             if (Validar())
             {
-                //está todo listo para agregar el ticket 
-
                 MiTicket.MiCategoria.IDTicketCategoria = Convert.ToInt32(CboxCategoria.SelectedValue);
                 MiTicket.MiCategoria.TicketCategoriaDescripcion = Convert.ToString(CboxCategoria.SelectedText);
 

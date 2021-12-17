@@ -13,7 +13,6 @@ namespace Logica.Models
 
         public string UsuarioRolDescripcion { get; set; }
 
-        //estas funciones deben cumplir con el contrar escrito en la interface ICrudBase
         public bool Agregar()
         {
             bool R = false;
@@ -35,9 +34,6 @@ namespace Logica.Models
             return R;
         }
 
-        //Las siguientes funciones son las específicas de la clase que NO están en ICrudBase
-        //O sea, no son comunes para más de una clase. 
-
         bool ConsultarPorID()
         {
             bool R = false;
@@ -56,13 +52,10 @@ namespace Logica.Models
         {
             DataTable R = new DataTable();
 
-            //SEQ: SDUsuarioRolListar paso 2.1 y 2.2
             Conexion MiConexion = new Conexion();
 
-            //paso 2.3
             R = MiConexion.DMLSelect("SPUsuarioRolListar");
 
-            //paso 2.4
             return R;
         }
 

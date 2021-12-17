@@ -63,7 +63,8 @@ namespace Tickets.Formularios
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(791, 381);
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.Size = new System.Drawing.Size(790, 381);
             this.dataGridView1.TabIndex = 0;
             // 
             // BtnCerrar
@@ -73,9 +74,9 @@ namespace Tickets.Formularios
             this.BtnCerrar.BackColor = System.Drawing.Color.Maroon;
             this.BtnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCerrar.ForeColor = System.Drawing.Color.White;
-            this.BtnCerrar.Location = new System.Drawing.Point(800, 390);
+            this.BtnCerrar.Location = new System.Drawing.Point(799, 390);
             this.BtnCerrar.Name = "BtnCerrar";
-            this.BtnCerrar.Size = new System.Drawing.Size(242, 40);
+            this.BtnCerrar.Size = new System.Drawing.Size(243, 40);
             this.BtnCerrar.TabIndex = 1;
             this.BtnCerrar.Text = "Cerrar";
             this.BtnCerrar.UseVisualStyleBackColor = false;
@@ -88,6 +89,7 @@ namespace Tickets.Formularios
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FrmAtencionDeTickets";
             this.Text = "FrmAtencionDeTickets";
+            this.Load += new System.EventHandler(this.FrmAtencionDeTickets_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

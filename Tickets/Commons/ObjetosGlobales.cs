@@ -52,7 +52,6 @@ namespace Tickets.Commons
 
         public static bool CaracteresNumeros(System.Windows.Forms.KeyPressEventArgs c, bool SoloEnteros = true)
         {
-            //En el caso que presione enter acepta el valor y devuelve True
             int Asc = (int)Keys.Enter;
 
             if (c.KeyChar == Asc)
@@ -134,16 +133,10 @@ namespace Tickets.Commons
             return h;
         }
 
-
-        //Formularios de uso recurrente en el sistema 
-        //Si el formulario deberiá verse SOLO UNA VEZ por sesión lo más 
-        //conveniente es defirlo de forma estática, y no dinámica. 
-
         public static Form MiFormPrincipal = new Formularios.FrmMain();
 
         public static Formularios.FrmUsuarioGestion FormularioGestionDeUsuarios = new Formularios.FrmUsuarioGestion();
 
-        //se definen los objetos (basados en clases) que deben ser accesibles desde cualquier lugar de la app
         public static Logica.Models.Usuario MiUsuarioDeSistema = new Logica.Models.Usuario();
 
         public static Formularios.FrmUsuarioRecuperarContrasennia FormularioRecuperacionContrasennia = new Formularios.FrmUsuarioRecuperarContrasennia();

@@ -9,12 +9,9 @@ namespace Logica.Models
 {
     public class TicketCategoria
     {
-        //atributos
         public int IDTicketCategoria { get; set; }
 
         public string TicketCategoriaDescripcion { get; set; }
-
-        //comportamientos
 
         public DataTable Listar()
         {

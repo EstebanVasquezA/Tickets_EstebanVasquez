@@ -52,6 +52,7 @@ namespace Tickets.Formularios
             this.Name = "FrmVisulizarReportes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Visualizador de Reportes";
+            this.Load += new System.EventHandler(this.FrmVisulizarReportes_Load);
             this.ResumeLayout(false);
 
         }

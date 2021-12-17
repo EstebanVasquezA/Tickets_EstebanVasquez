@@ -57,18 +57,10 @@ namespace Tickets.Formularios
 
                     if (MyUser.ConsultarPorEmail())
                     {
-                        //Si el correo existe para un usuario activo se procede a enviar el correo con un 
-                        //códgo de verificación que el usuario deberá digitar para comprobar que sea él 
-
-                        //Este código se debería generar aleatoriamente. 
-                        //TODO: ???
-
                         string CodigoVerificacion = "ABC123*";
 
                         if (MyUser.EnviarCodigoRecuperacion(CodigoVerificacion))
-                        {
-                            //Se procede a enviar el correo al usuario con el código  
-
+                        { 
                             MyEmail.Asunto = "Su código de recuperación de contraseña de Tickets Progra 5 2021-3";
 
                             MyEmail.CorreoDestino = MyUser.Email;
@@ -111,20 +103,14 @@ namespace Tickets.Formularios
 
         private void BtnAceptar_Click(object sender, EventArgs e)
         {
-            //1. Se debe verificar que el código digitado sea el mismo que está almacenado en la tabla usuario
-            //2. Las contraseñas deben ser las mismas. 
-            //3. Se procede con el cambio de contraseña 
 
             if (!string.IsNullOrEmpty(TxtCodigoEnviado.Text.Trim()) && ValidarContrasennias() )
             {
-                //el dato del email ya se había asignado en el proceso de enviar el email al usuario
                 MyUser.CodigoRecuperacion = TxtCodigoEnviado.Text.Trim();
                 MyUser.Contrasennia = TxtPass1.Text.Trim();
 
                 if (MyUser.ComprobarCodigoRecuperacion())
                 {
-                    // se tiene permiso de modificar la contraseña 
-
                     if (MyUser.CambiarPassword())
                     {
                         MessageBox.Show("La Contraseña se ha actualizado correctamente", ":)", MessageBoxButtons.OK);

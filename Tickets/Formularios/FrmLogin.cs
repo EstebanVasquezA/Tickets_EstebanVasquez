@@ -18,11 +18,8 @@ namespace Tickets.Formularios
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
-        {
-            //salimos de la aplicación 
-
+        { 
             Application.Exit();
-
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
@@ -86,9 +83,8 @@ namespace Tickets.Formularios
                 {
                     Commons.ObjetosGlobales.MiUsuarioDeSistema = MiUsuarioValidado;
 
-                    //muestro el objeto global del FrmMain
                     Commons.ObjetosGlobales.MiFormPrincipal.Show();
-                    //oculto (no destruyo) el frm de Login
+
                     this.Hide();
                 }
                 else
@@ -104,10 +100,8 @@ namespace Tickets.Formularios
             Commons.ObjetosGlobales.MiUsuarioDeSistema.Email = "a@gmail.com";
             Commons.ObjetosGlobales.MiUsuarioDeSistema.Nombre = "USUARIO DE PRUEBAS";
             Commons.ObjetosGlobales.MiUsuarioDeSistema.MiRol.IDUsuarioRol = 1;
-
-            //muestro el objeto global del FrmMain
             Commons.ObjetosGlobales.MiFormPrincipal.Show();
-            //oculto (no destruyo) el frm de Login
+
             this.Hide();
         }
 
@@ -124,6 +118,11 @@ namespace Tickets.Formularios
             Commons.ObjetosGlobales.FormularioRecuperacionContrasennia.TxtUsuario.Text = this.TxtEmail.Text.Trim();
 
             Commons.ObjetosGlobales.FormularioRecuperacionContrasennia.Show();
+
+        }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
 
         }
     }

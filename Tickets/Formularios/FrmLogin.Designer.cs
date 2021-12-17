@@ -46,7 +46,7 @@ namespace Tickets.Formularios
             this.TxtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtEmail.Location = new System.Drawing.Point(12, 33);
             this.TxtEmail.Name = "TxtEmail";
-            this.TxtEmail.Size = new System.Drawing.Size(225, 22);
+            this.TxtEmail.Size = new System.Drawing.Size(225, 26);
             this.TxtEmail.TabIndex = 0;
             this.TxtEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -56,7 +56,7 @@ namespace Tickets.Formularios
             this.TxtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtPassword.Location = new System.Drawing.Point(12, 78);
             this.TxtPassword.Name = "TxtPassword";
-            this.TxtPassword.Size = new System.Drawing.Size(225, 22);
+            this.TxtPassword.Size = new System.Drawing.Size(225, 26);
             this.TxtPassword.TabIndex = 1;
             this.TxtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TxtPassword.UseSystemPasswordChar = true;
@@ -120,7 +120,7 @@ namespace Tickets.Formularios
             this.LblRecuperarContrasennia.LinkColor = System.Drawing.Color.LightYellow;
             this.LblRecuperarContrasennia.Location = new System.Drawing.Point(9, 159);
             this.LblRecuperarContrasennia.Name = "LblRecuperarContrasennia";
-            this.LblRecuperarContrasennia.Size = new System.Drawing.Size(123, 13);
+            this.LblRecuperarContrasennia.Size = new System.Drawing.Size(140, 15);
             this.LblRecuperarContrasennia.TabIndex = 6;
             this.LblRecuperarContrasennia.TabStop = true;
             this.LblRecuperarContrasennia.Text = "Recuperar Contraseña...";
@@ -171,6 +171,7 @@ namespace Tickets.Formularios
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmLogin";
+            this.Load += new System.EventHandler(this.FrmLogin_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLogin_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

@@ -47,13 +47,10 @@ namespace Tickets.Formularios
                 int IdCliente = Convert.ToInt32(DgvLista.SelectedRows[0].Cells["CIDCliente"].Value);
 
                 string Cliente = Convert.ToString(DgvLista.SelectedRows[0].Cells["CNombre"].Value);
-                //una vez que he capturado la info necesaria de las columnas del DGV, puedo pasar estos 
-                //datos al objeto local MiTicket 
 
                 Commons.ObjetosGlobales.FormCrearTicket.MiTicket.MiCliente.IDCliente = IdCliente;
                 Commons.ObjetosGlobales.FormCrearTicket.MiTicket.MiCliente.Nombre = Cliente;
 
-                //esto cierra el form y retorna una respuesta al formulario que lo invocó 
                 this.DialogResult = DialogResult.OK;
 
             }

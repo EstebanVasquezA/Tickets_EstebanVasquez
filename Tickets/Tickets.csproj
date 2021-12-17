@@ -69,12 +69,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commons\ObjetosGlobales.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Formularios\FrmAtencionDeTickets.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,9 +125,6 @@
       <DependentUpon>RptTicket.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmAtencionDeTickets.resx">
       <DependentUpon>FrmAtencionDeTickets.cs</DependentUpon>
     </EmbeddedResource>

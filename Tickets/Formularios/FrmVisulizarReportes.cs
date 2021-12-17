@@ -16,5 +16,10 @@ namespace Tickets.Formularios
         {
             InitializeComponent();
         }
+
+        private void FrmVisulizarReportes_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

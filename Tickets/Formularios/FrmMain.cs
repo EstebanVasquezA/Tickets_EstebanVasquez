@@ -31,20 +31,14 @@ namespace Tickets.Formularios
 
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //TODO: analizar si queremos hacer un logout cuando cerramos el principal 
-
             Application.Exit();
-
         }
 
         private void gestiónDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //mostramos el formulario global de gestión de usuarios 
-
             Commons.ObjetosGlobales.FormularioGestionDeUsuarios = new FrmUsuarioGestion();
 
             Commons.ObjetosGlobales.FormularioGestionDeUsuarios.Show();
-
         }
 
         private void creaciónDeTicketToolStripMenuItem_Click(object sender, EventArgs e)

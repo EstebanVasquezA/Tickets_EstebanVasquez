@@ -8,12 +8,8 @@ namespace Logica.Models
 {
     public interface ICrudBase
     {
-        //esta Interface obliga a las clases que la implementen a cumplir el contrato de 
-        //estructura acá escrito 
-
         bool Agregar();
         bool Editar();
         bool Eliminar();
-
     }
 }

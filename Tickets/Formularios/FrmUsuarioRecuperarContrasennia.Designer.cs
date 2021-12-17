@@ -48,7 +48,7 @@ namespace Tickets.Formularios
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(64, 16);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(271, 20);
+            this.label1.Size = new System.Drawing.Size(326, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "NOMBRE DE USUARIO / EMAIL";
             // 
@@ -57,7 +57,7 @@ namespace Tickets.Formularios
             this.TxtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtUsuario.Location = new System.Drawing.Point(12, 39);
             this.TxtUsuario.Name = "TxtUsuario";
-            this.TxtUsuario.Size = new System.Drawing.Size(374, 26);
+            this.TxtUsuario.Size = new System.Drawing.Size(374, 30);
             this.TxtUsuario.TabIndex = 1;
             this.TxtUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -81,7 +81,7 @@ namespace Tickets.Formularios
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(70, 155);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(258, 20);
+            this.label2.Size = new System.Drawing.Size(314, 25);
             this.label2.TabIndex = 3;
             this.label2.Text = "Código de Verificación Enviado";
             // 
@@ -92,7 +92,7 @@ namespace Tickets.Formularios
             this.TxtCodigoEnviado.Location = new System.Drawing.Point(47, 178);
             this.TxtCodigoEnviado.MaxLength = 8;
             this.TxtCodigoEnviado.Name = "TxtCodigoEnviado";
-            this.TxtCodigoEnviado.Size = new System.Drawing.Size(304, 35);
+            this.TxtCodigoEnviado.Size = new System.Drawing.Size(304, 41);
             this.TxtCodigoEnviado.TabIndex = 4;
             this.TxtCodigoEnviado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -101,7 +101,7 @@ namespace Tickets.Formularios
             this.TxtPass1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtPass1.Location = new System.Drawing.Point(47, 250);
             this.TxtPass1.Name = "TxtPass1";
-            this.TxtPass1.Size = new System.Drawing.Size(304, 29);
+            this.TxtPass1.Size = new System.Drawing.Size(304, 34);
             this.TxtPass1.TabIndex = 6;
             this.TxtPass1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -110,7 +110,7 @@ namespace Tickets.Formularios
             this.TxtPass2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtPass2.Location = new System.Drawing.Point(47, 316);
             this.TxtPass2.Name = "TxtPass2";
-            this.TxtPass2.Size = new System.Drawing.Size(304, 26);
+            this.TxtPass2.Size = new System.Drawing.Size(304, 30);
             this.TxtPass2.TabIndex = 8;
             this.TxtPass2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -148,7 +148,7 @@ namespace Tickets.Formularios
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(95, 227);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(209, 20);
+            this.label3.Size = new System.Drawing.Size(253, 25);
             this.label3.TabIndex = 11;
             this.label3.Text = "Digite Nueva Contraseña";
             // 
@@ -158,7 +158,7 @@ namespace Tickets.Formularios
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(116, 293);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(166, 20);
+            this.label4.Size = new System.Drawing.Size(198, 25);
             this.label4.TabIndex = 12;
             this.label4.Text = "Repetir Contraseña";
             // 

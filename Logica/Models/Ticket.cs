@@ -37,17 +37,12 @@ namespace Logica.Models
 
         }
 
-        //esta clase es la más complicadda en composiciones
-
         public TicketCategoria MiCategoria { get; set; }
 
         public Cliente MiCliente { get; set; }
 
-        //composición múltiple, o sea es la tabla de muchos a muchos 
         public List<UsuarioTicket> MiListaDeUsuarios { get; set; }
 
-
-        //funciones
         public bool Agregar()
         {
             bool R = false;
@@ -63,9 +58,6 @@ namespace Logica.Models
 
             if (i != null)
             {
-                //hay que asignar el Id del tiquet el valor del Id creado en el SP
-                //ya que es fundamental para la visualización del reporte 
-
                 this.IDTicket = Convert.ToInt32(i.ToString());
 
                 R = true;
@@ -118,7 +110,6 @@ namespace Logica.Models
 
             if (Datos != null && Datos.Rows.Count > 0)
             {
-                //se le asigna al reporte (el que diseñamos) los datos que provienen de del SP
                 OCrystal.Datos = Datos;
 
                 R = OCrystal.GenerarReporte();
