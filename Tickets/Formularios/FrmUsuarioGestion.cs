@@ -60,7 +60,7 @@ namespace Tickets.Formularios
             DatosDeRoles = MiUsuarioLocal.MiRol.Listar();
 
             CbRol.ValueMember = "ID";
-            CbRol.DisplayMember = "Descrip";
+            CbRol.DisplayMember = "Descript";
 
             CbRol.DataSource = DatosDeRoles;
 
@@ -152,7 +152,7 @@ namespace Tickets.Formularios
 
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
-			if (ValidarDatosRequeridos())
+            if (ValidarDatosRequeridos())
 			{ 
 			    bool OkCedula = MiUsuarioLocal.ConsultarPorCedula(MiUsuarioLocal.Cedula);
 
@@ -169,9 +169,7 @@ namespace Tickets.Formularios
                         if (MiUsuarioLocal.Agregar())
                         {
                             MessageBox.Show("Usuario Agregado Correctamente", ":)", MessageBoxButtons.OK);
-
                             LimpiarFormulario();
-
                             LlenarListaUsuarios(CboxVerActivos.Checked);
                         }
                         else
@@ -305,6 +303,9 @@ namespace Tickets.Formularios
                             LimpiarFormulario();
 
                             LlenarListaUsuarios(CboxVerActivos.Checked);
+
+                            Logica.Bitacora.GuardarAccionEnBitacora(ObjUsuario.IDUsuario, "Edición del usuario "
+                            + ObjUsuario.Nombre);
                         }
                         else
                         {
@@ -316,7 +317,7 @@ namespace Tickets.Formularios
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e)
-        {      
+        {
             Logica.Models.Usuario ObjUsuarioTemporal = MiUsuarioLocal.ConsultarPorID(MiUsuarioLocal.IDUsuario);
 
             if (ObjUsuarioTemporal.IDUsuario > 0)
@@ -341,6 +342,9 @@ namespace Tickets.Formularios
                         if (MiUsuarioLocal.Eliminar())
                         {
                             MessageBox.Show("El Usuario se ha Desactivado correctamente!", ":)", MessageBoxButtons.OK);
+
+                            Logica.Bitacora.GuardarAccionEnBitacora(MiUsuarioLocal.IDUsuario, "Desactivación del usuario "
+                            + MiUsuarioLocal.Nombre);
                         }
                         else
                         {
@@ -352,6 +356,9 @@ namespace Tickets.Formularios
                         if (MiUsuarioLocal.Activar())
                         {
                             MessageBox.Show("El Usuario se ha Activado correctamente!", ":)", MessageBoxButtons.OK);
+
+                            Logica.Bitacora.GuardarAccionEnBitacora(MiUsuarioLocal.IDUsuario, "Activación del usuario "
+                            + MiUsuarioLocal.Nombre);
                         }
                         else
                         {

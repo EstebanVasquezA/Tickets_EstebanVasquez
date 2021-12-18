@@ -18,8 +18,10 @@ namespace Tickets.Formularios
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
-        { 
+        {
             Application.Exit();
+
+            Logica.Bitacora.GuardarAccionEnBitacora(0, "Cierre de sistema");
         }
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
@@ -86,10 +88,16 @@ namespace Tickets.Formularios
                     Commons.ObjetosGlobales.MiFormPrincipal.Show();
 
                     this.Hide();
+
+                    Logica.Bitacora.GuardarAccionEnBitacora(MiUsuarioValidado.IDUsuario, "El usuario con el email "
+                    + MiUsuarioValidado.Email + "ingresó correctamente al sistema");
                 }
                 else
                 {
                     MessageBox.Show("Usuario o Contraseña Incorrectos", "Error de Validado", MessageBoxButtons.OK);
+
+                    Logica.Bitacora.GuardarAccionEnBitacora(0, "Ingreso fallido al sistema con el email "
+                    + TxtEmail.Text.Trim());
                 }
             }
         }
@@ -103,6 +111,8 @@ namespace Tickets.Formularios
             Commons.ObjetosGlobales.MiFormPrincipal.Show();
 
             this.Hide();
+
+            Logica.Bitacora.GuardarAccionEnBitacora(1, "Ingreso directo al sistema");
         }
 
         private void FrmLogin_KeyDown(object sender, KeyEventArgs e)
@@ -118,11 +128,6 @@ namespace Tickets.Formularios
             Commons.ObjetosGlobales.FormularioRecuperacionContrasennia.TxtUsuario.Text = this.TxtEmail.Text.Trim();
 
             Commons.ObjetosGlobales.FormularioRecuperacionContrasennia.Show();
-
-        }
-
-        private void FrmLogin_Load(object sender, EventArgs e)
-        {
 
         }
     }

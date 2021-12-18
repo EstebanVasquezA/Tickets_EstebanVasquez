@@ -1,18 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Logica
 {
-    public class Bitacora
+    public static class Bitacora
     {
-        private bool GuardarAccionEnBitacora(int IDUsuario, string Accion)
+        public static void GuardarAccionEnBitacora(int IDUsuario, string Accion)
         {
-            bool R = false;
+            Logica.Models.Conexion MiCnn = new Models.Conexion();
 
-            return R;
+            MiCnn.ListadoDeParametros.Add(new SqlParameter("@IDUsuario", IDUsuario));
+            MiCnn.ListadoDeParametros.Add(new SqlParameter("@Accion", Accion));
+            MiCnn.ListadoDeParametros.Add(new SqlParameter("@FechaHora", DateTime.Now));
+
+             MiCnn.DMLUpdateDeleteInsert("SPBitacoraInsertar");
         }
     }
 }

@@ -22,6 +22,10 @@ namespace Logica.Models
 
             Conexion MiCnnAdd = new Conexion();
 
+            SqlParameter parametroOutput = new SqlParameter("@Identity_ID", SqlDbType.Int, 100);
+            parametroOutput.Direction = ParameterDirection.Output;
+            MiCnnAdd.ListadoDeParametros.Add(parametroOutput);
+            
             MiCnnAdd.ListadoDeParametros.Add(new SqlParameter("@Cedula", this.Cedula));
             MiCnnAdd.ListadoDeParametros.Add(new SqlParameter("@Nombre", this.Nombre));
             MiCnnAdd.ListadoDeParametros.Add(new SqlParameter("@Telefono", this.Telefono));
@@ -30,15 +34,18 @@ namespace Logica.Models
             Crypto MiEncriptador = new Crypto();
             string PassEncriptado = MiEncriptador.EncriptarEnUnSentido(this.Contrasennia);
 
-            MiCnnAdd.ListadoDeParametros.Add(new SqlParameter("@Contrasennia", PassEncriptado));
+            MiCnnAdd.ListadoDeParametros.Add(new SqlParameter("@Contrasenna", PassEncriptado));
 
-            MiCnnAdd.ListadoDeParametros.Add(new SqlParameter("@IdRol", this.MiRol.IDUsuarioRol));
+            MiCnnAdd.ListadoDeParametros.Add(new SqlParameter("@IDRol", this.MiRol.IDUsuarioRol));
   
-            int resultado = MiCnnAdd.DMLUpdateDeleteInsert("SPUsuarioAgregar");
+           int id = MiCnnAdd.DMLUpdateDeleteInsertIdentity("SPUsuarioAgregar");
 
-            if (resultado > 0)
+            if (id > 0)
             {
                 R = true;
+
+                Bitacora.GuardarAccionEnBitacora(id, "Creación del usuario "
+                + this.Nombre);
             }
 
             return R;
@@ -63,7 +70,7 @@ namespace Logica.Models
                 PassEncriptado = MiEncriptador.EncriptarEnUnSentido(this.Contrasennia);
             }
                        
-            MiCnn.ListadoDeParametros.Add(new SqlParameter("@Contrasennia", PassEncriptado));
+            MiCnn.ListadoDeParametros.Add(new SqlParameter("@Contrasenna", PassEncriptado));
 
             MiCnn.ListadoDeParametros.Add(new SqlParameter("@IdRol", this.MiRol.IDUsuarioRol));
             MiCnn.ListadoDeParametros.Add(new SqlParameter("@ID", this.IDUsuario));

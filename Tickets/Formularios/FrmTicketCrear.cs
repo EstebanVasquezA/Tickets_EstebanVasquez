@@ -89,6 +89,9 @@ namespace Tickets.Formularios
                 {
                     MessageBox.Show("Ticket Agregado Correctamente", ":)", MessageBoxButtons.OK);
 
+                    Logica.Bitacora.GuardarAccionEnBitacora(Tickets.Commons.ObjetosGlobales.MiUsuarioDeSistema.IDUsuario, "Creación de Ticket "
+                    + MiTicket.IDTicket);
+
                     try
                     {
                         ReportDocument MiReporte = new ReportDocument();
@@ -108,6 +111,8 @@ namespace Tickets.Formularios
                     catch (Exception)
                     {
                         throw;
+                        Logica.Bitacora.GuardarAccionEnBitacora(Tickets.Commons.ObjetosGlobales.MiUsuarioDeSistema.IDUsuario,
+                        "Error en la creación de Ticket");
                     }
                     LimpiarForm();
                 }

@@ -36,4 +36,3 @@ C:\Users\Asus VivoBook\Desktop\Universidad\Progra 5\Examen Final\Tickets\Tickets
 C:\Users\Asus VivoBook\Desktop\Universidad\Progra 5\Examen Final\Tickets\Tickets\obj\Debug\Tickets.csproj.CoreCompileInputs.cache
 C:\Users\Asus VivoBook\Desktop\Universidad\Progra 5\Examen Final\Tickets\Tickets\obj\Debug\Tickets.exe
 C:\Users\Asus VivoBook\Desktop\Universidad\Progra 5\Examen Final\Tickets\Tickets\obj\Debug\Tickets.pdb
-C:\Users\Asus VivoBook\Desktop\Universidad\Progra 5\Examen Final\Tickets\Tickets\obj\Debug\Tickets.csproj.CopyComplete

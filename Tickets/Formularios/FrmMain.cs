@@ -32,6 +32,9 @@ namespace Tickets.Formularios
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+
+            Logica.Bitacora.GuardarAccionEnBitacora(Commons.ObjetosGlobales.MiUsuarioDeSistema.IDUsuario,
+            "Cierre de sistema");
         }
 
         private void gestiónDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)

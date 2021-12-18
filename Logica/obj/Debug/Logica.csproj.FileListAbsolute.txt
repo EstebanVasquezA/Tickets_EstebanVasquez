@@ -96,7 +96,6 @@ C:\Users\Asus VivoBook\Desktop\Universidad\Progra 5\Examen Final\Tickets\Logica\
 C:\Users\Asus VivoBook\Desktop\Universidad\Progra 5\Examen Final\Tickets\Logica\bin\Debug\tr\CrystalDecisions.Windows.Forms.resources.dll
 C:\Users\Asus VivoBook\Desktop\Universidad\Progra 5\Examen Final\Tickets\Logica\bin\Debug\zh-CHS\CrystalDecisions.Windows.Forms.resources.dll
 C:\Users\Asus VivoBook\Desktop\Universidad\Progra 5\Examen Final\Tickets\Logica\bin\Debug\zh-CHT\CrystalDecisions.Windows.Forms.resources.dll
-C:\Users\Asus VivoBook\Desktop\Universidad\Progra 5\Examen Final\Tickets\Logica\obj\Debug\Logica.csproj.AssemblyReference.cache
 C:\Users\Asus VivoBook\Desktop\Universidad\Progra 5\Examen Final\Tickets\Logica\obj\Debug\Logica.csproj.CoreCompileInputs.cache
 C:\Users\Asus VivoBook\Desktop\Universidad\Progra 5\Examen Final\Tickets\Logica\obj\Debug\Logica.dll
 C:\Users\Asus VivoBook\Desktop\Universidad\Progra 5\Examen Final\Tickets\Logica\obj\Debug\Logica.pdb

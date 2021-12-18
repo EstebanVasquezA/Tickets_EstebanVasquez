@@ -115,6 +115,8 @@ namespace Tickets.Formularios
                     {
                         MessageBox.Show("La Contraseña se ha actualizado correctamente", ":)", MessageBoxButtons.OK);
                         this.Hide();
+                        Logica.Bitacora.GuardarAccionEnBitacora(MyUser.IDUsuario, "Recuperación de contraseña del usuario "
+                        + MyUser.Nombre);
                     }
                     else
                     {
@@ -126,6 +128,9 @@ namespace Tickets.Formularios
                     MessageBox.Show("El código de verificación digitado no es correcto", ":(", MessageBoxButtons.OK);
 
                     TxtCodigoEnviado.BackColor = Color.Firebrick;
+
+                    Logica.Bitacora.GuardarAccionEnBitacora(MyUser.IDUsuario, "Fallo en la recuperación de contraseña del usuario "
+                    + MyUser.Nombre);
                 }
             }
         }

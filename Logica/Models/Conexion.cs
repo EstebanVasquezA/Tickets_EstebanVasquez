@@ -55,6 +55,37 @@ namespace Logica.Models
             return Retorno;
         }
 
+        public int DMLUpdateDeleteInsertIdentity(string NombreSP)
+        {
+            int Retorno = 0;
+            int id = 0;
+
+            using (SqlConnection MyCnn = new SqlConnection(CadenaDeConexion))
+
+            {
+                SqlCommand MyComando = new SqlCommand(NombreSP, MyCnn);
+                MyComando.CommandType = CommandType.StoredProcedure;
+
+                if (ListadoDeParametros != null && ListadoDeParametros.Count > 0)
+                {
+                    foreach (SqlParameter item in ListadoDeParametros)
+                    {
+                        MyComando.Parameters.Add(item);
+                    }
+                }
+
+                MyCnn.Open();
+
+                //Si el comando a ejecutar en un DML (update, Insert o delete) 
+                //establecer SET NOCOUNT OFF; en el SP 
+
+                Retorno = MyComando.ExecuteNonQuery();
+                id = Convert.ToInt32(MyComando.Parameters["@Identity_ID"].Value);
+            }
+
+            return id;
+        }
+
         /*
          Esta función ejecuta un procedimiento almacenado. 
          Recibe por parámetro el nombre del SP y además 
